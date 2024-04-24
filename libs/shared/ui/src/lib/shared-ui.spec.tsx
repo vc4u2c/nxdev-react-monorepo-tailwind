@@ -7,4 +7,9 @@ describe('SharedUi', () => {
     const { baseElement } = render(<SharedUi />);
     expect(baseElement).toBeTruthy();
   });
+
+  it('should have a greeting as the title', () => {
+    const { getByText } = render(<SharedUi />);
+    expect(getByText(/Shared UI/gi)).toBeTruthy();
+  });
 });

@@ -103,6 +103,8 @@ npx nx g @nx/react:library shared-ui --directory=libs/shared/ui --unitTestRunner
 # Move libs/my-feature-lib to libs/shared/my-feature-lib:
 # npx nx g @nx/workspace:move --project my-feature-lib --destination shared/my-feature-lib
 
+# Delete the components generated for each of these projects
+
 # Create and expose a ProductList component from libs/products library.
 npx nx g @nx/react:component product-list --project=products --directory="libs/products/src/lib/product-list"
 # √ Should this component be exported in the project? (y/N) · true
@@ -113,6 +115,29 @@ npx nx g @nx/react:component order-list --project=orders --directory="libs/order
 # √ Should this component be exported in the project? (y/N) · true
 # √ Where should the component be generated? · libs/orders/src/lib/order-list/order-list.tsx
 
+# Run Unit tests in parallel
+npx nx run-many -t test
+# Run E2E tests in parallel
+npx nx run-many -t e2e
+npx playwright show-report .\dist\.playwright\apps\store-e2e\playwright-report
+npx playwright show-report .\dist\.playwright\apps\inventory-e2e\playwright-report
+npx nx serve store
+npx nx serve inventory
+
+# Building the Apps for Deployment
+npx nx run-many -t build
+
+# Install Netlify CLI
+npm install -g netlify-cli
+
+# Building the Apps for Deployment
+nx affected -t deploy
+
+# Imposing Constraints with Module Boundary Rules
+# type:feature should be able to import from type:feature and type:ui
+# type:ui should only be able to import from type:ui
+# scope:orders should be able to import from scope:orders, scope:shared and scope:products
+# scope:products should be able to import from scope:products and scope:shared
 ```
 
 ## Integrate with editors

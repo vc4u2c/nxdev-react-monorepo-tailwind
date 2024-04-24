@@ -1,17 +1,11 @@
-import styled from 'tailwind';
-
 /* eslint-disable-next-line */
 export interface SharedUiProps {}
 
-const StyledSharedUi = styled.div`
-  color: pink;
-`;
-
 export function SharedUi(props: SharedUiProps) {
   return (
-    <StyledSharedUi>
-      <h1>Welcome to SharedUi!</h1>
-    </StyledSharedUi>
+    <div className="bg-red-500 p-2 font-mono font-semibold text-center">
+      <h2>Shared UI</h2>
+    </div>
   );
 }
 

@@ -1,3 +1,5 @@
+import { OrderList } from '@nxdev-react-monorepo-tailwind/orders';
+import { SharedUi } from '@nxdev-react-monorepo-tailwind/shared-ui';
 import { Route, Routes, Link } from 'react-router-dom';
 
 export function App() {
@@ -6,6 +8,8 @@ export function App() {
       <div className="bg-indigo-500 p-2 font-mono font-bold text-center">
         <h1>Inventory App: Hello, Tailwind!</h1>
       </div>
+      <OrderList />
+      <SharedUi />
       <div role="navigation">
         <ul>
           <li>
