@@ -11,6 +11,8 @@
 # Download and Install Git SCM: https://git-scm.com/download/win
 # 64 Bit Standalone Installer for Windows: https://github.com/git-for-windows/git/releases/download/v2.44.0.windows.1/Git-2.44.0-64-bit.exe
 
+# Install VS Code extension Tailwind CSS IntelliSense
+
 # Open VS Code
 # CTRL + ` to open terminal
 
@@ -89,6 +91,27 @@ npx playwright show-report .\dist\.playwright\apps\inventory-e2e\playwright-repo
 
 # Preview
 npx nx run inventory:preview
+
+# Sharing Code with Local Libraries
+npx nx g @nx/react:library products --directory=libs/products --unitTestRunner=vitest --bundler=none
+# √ What should be the project name and where should it be generated? · products @ libs/products
+npx nx g @nx/react:library orders --directory=libs/orders --unitTestRunner=vitest --bundler=none
+# √ What should be the project name and where should it be generated? · orders @ libs/orders
+npx nx g @nx/react:library shared-ui --directory=libs/shared/ui --unitTestRunner=vitest --bundler=none
+# √ What should be the project name and where should it be generated? · shared-ui @ libs/shared/ui
+
+# Move libs/my-feature-lib to libs/shared/my-feature-lib:
+# npx nx g @nx/workspace:move --project my-feature-lib --destination shared/my-feature-lib
+
+# Create and expose a ProductList component from libs/products library.
+npx nx g @nx/react:component product-list --project=products --directory="libs/products/src/lib/product-list"
+# √ Should this component be exported in the project? (y/N) · true
+# √ Where should the component be generated? · libs/products/src/lib/product-list/product-list.tsx
+
+# Create and expose a OrderList component from libs/orders library.
+npx nx g @nx/react:component order-list --project=orders --directory="libs/orders/src/lib/order-list"
+# √ Should this component be exported in the project? (y/N) · true
+# √ Where should the component be generated? · libs/orders/src/lib/order-list/order-list.tsx
 
 ```
 

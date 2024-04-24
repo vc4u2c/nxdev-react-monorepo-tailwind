@@ -20,6 +20,6 @@ describe('App', () => {
         <App />
       </BrowserRouter>
     );
-    expect(getByText(/Welcome inventory/gi)).toBeTruthy();
+    expect(getByText(/Inventory App: Hello, Tailwind!/gi)).toBeTruthy();
   });
 });

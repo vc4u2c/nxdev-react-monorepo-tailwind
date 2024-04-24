@@ -1,18 +1,11 @@
-import NxWelcome from './nx-welcome';
-
 import { Route, Routes, Link } from 'react-router-dom';
 
 export function App() {
   return (
     <div>
-      <NxWelcome title="inventory" />
-
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
+      <div className="bg-indigo-500 p-2 font-mono font-bold text-center">
+        <h1>Inventory App: Hello, Tailwind!</h1>
+      </div>
       <div role="navigation">
         <ul>
           <li>
@@ -42,7 +35,6 @@ export function App() {
           }
         />
       </Routes>
-      {/* END: routes */}
     </div>
   );
 }
