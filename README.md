@@ -130,8 +130,18 @@ npx nx run-many -t build
 # Install Netlify CLI
 npm install -g netlify-cli
 
+# Linting
+npx nx run-many -t lint
+
+# Building
+npx nx run-many -t build
+
 # Building the Apps for Deployment
 nx affected -t deploy
+
+# Show the project dependency graph
+npx nx graph
+npx nx graph --affected
 
 # Imposing Constraints with Module Boundary Rules
 # type:feature should be able to import from type:feature and type:ui
