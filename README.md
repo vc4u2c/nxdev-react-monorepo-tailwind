@@ -6,6 +6,31 @@
 ## Initial Setup
 
 ```bash
+cd C:\Users\vinod.chandran\Documents\Source\Repos
+git clone https://github.com/vc4u2c/nxdev-react-monorepo-tailwind.git
+cd nxdev-react-monorepo-tailwind
+npm i
+
+# Building the Apps for Deployment
+npx nx run-many -t build
+
+# Run Unit tests in parallel
+npx nx run-many -t test
+npx nx view-logs
+
+# Run E2E tests in parallel
+npx nx run-many -t e2e
+npx playwright show-report .\dist\.playwright\apps\store-e2e\playwright-report
+npx playwright show-report .\dist\.playwright\apps\inventory-e2e\playwright-report
+
+npx nx serve store
+npx nx serve inventory
+```
+
+## Monorepo Creation Setup
+
+```bash
+# This setup along with commit history describes how the repo was created
 # Download and install Node.js v20.12.0 from https://nodejs.org/en
 
 # Download and Install Git SCM: https://git-scm.com/download/win
@@ -115,6 +140,9 @@ npx nx g @nx/react:component order-list --project=orders --directory="libs/order
 # √ Should this component be exported in the project? (y/N) · true
 # √ Where should the component be generated? · libs/orders/src/lib/order-list/order-list.tsx
 
+# Building the Apps for Deployment
+npx nx run-many -t build
+
 # Run Unit tests in parallel
 npx nx run-many -t test
 npx nx view-logs
@@ -124,9 +152,6 @@ npx playwright show-report .\dist\.playwright\apps\store-e2e\playwright-report
 npx playwright show-report .\dist\.playwright\apps\inventory-e2e\playwright-report
 npx nx serve store
 npx nx serve inventory
-
-# Building the Apps for Deployment
-npx nx run-many -t build
 
 # Install Netlify CLI
 npm install -g netlify-cli
@@ -155,6 +180,8 @@ npx shadcn-ui@latest init
 # √ Configure the import alias for utils: ... @/lib/utils
 # √ Are you using React Server Components? ... no / yes
 # √ Write configuration to components.json. Proceed? ... yes
+
+npx shadcn-ui@latest add button
 
 # Imposing Constraints with Module Boundary Rules
 # type:feature should be able to import from type:feature and type:ui
