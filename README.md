@@ -117,6 +117,7 @@ npx nx g @nx/react:component order-list --project=orders --directory="libs/order
 
 # Run Unit tests in parallel
 npx nx run-many -t test
+npx nx view-logs
 # Run E2E tests in parallel
 npx nx run-many -t e2e
 npx playwright show-report .\dist\.playwright\apps\store-e2e\playwright-report
@@ -142,6 +143,18 @@ nx affected -t deploy
 # Show the project dependency graph
 npx nx graph
 npx nx graph --affected
+
+npx shadcn-ui@latest init
+# √ Would you like to use TypeScript (recommended)? ... no / yes
+# √ Which style would you like to use? » New York
+# √ Which color would you like to use as base color? » Slate
+# √ Where is your global CSS file? ... globals.css
+# √ Would you like to use CSS variables for colors? ... no / yes
+# √ Are you using a custom tailwind prefix eg. tw-? (Leave blank if not) ...
+# √ Where is your tailwind.config.js located? ... tailwind.config.js
+# √ Configure the import alias for utils: ... @/lib/utils
+# √ Are you using React Server Components? ... no / yes
+# √ Write configuration to components.json. Proceed? ... yes
 
 # Imposing Constraints with Module Boundary Rules
 # type:feature should be able to import from type:feature and type:ui

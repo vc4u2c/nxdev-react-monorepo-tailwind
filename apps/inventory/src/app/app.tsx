@@ -1,6 +1,7 @@
 import { OrderList } from '@nxdev-react-monorepo-tailwind/orders';
 import { SharedUi } from '@nxdev-react-monorepo-tailwind/shared-ui';
 import { Route, Routes, Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 export function App() {
   return (
@@ -10,6 +11,7 @@ export function App() {
       </div>
       <OrderList />
       <SharedUi />
+      <Button>Show Inventory</Button>
       <div role="navigation">
         <ul>
           <li>

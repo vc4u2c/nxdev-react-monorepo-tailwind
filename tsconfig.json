@@ -19,6 +19,9 @@
       "@nxdev-react-monorepo-tailwind/products": ["libs/products/src/index.ts"],
       "@nxdev-react-monorepo-tailwind/shared-ui": [
         "libs/shared/ui/src/index.ts"
+      ],
+      "@/*": [
+        "./libs/shared/ui/src/lib/*"
       ]
     }
   },

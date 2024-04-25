@@ -1,5 +1,6 @@
 import { ProductList } from "@nxdev-react-monorepo-tailwind/products";
 import { SharedUi } from "@nxdev-react-monorepo-tailwind/shared-ui";
+import { Button } from "@/components/ui/button"
 
 export function App() {
   return (
@@ -9,6 +10,7 @@ export function App() {
       </div>
       <ProductList />
       <SharedUi />
+      <Button>Show Store</Button>
     </div>
   );
 }
