@@ -1,6 +1,7 @@
 # NxdevReactMonorepo
 
 - NxDev React Monorepo with 2 React Apps & 3 shared libraries.
+- Styled with Tailwind and ShadCN
 - [Building React Apps in an Nx Monorepo](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial)
 
 ## Initial Setup
