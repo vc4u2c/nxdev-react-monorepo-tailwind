@@ -15,6 +15,10 @@ npm i
 # Building the Apps for Deployment
 npx nx run-many -t build
 
+# Run the apps
+npx nx serve store
+npx nx serve inventory
+
 # Run Unit tests in parallel
 npx nx run-many -t test
 npx nx view-logs
@@ -23,9 +27,6 @@ npx nx view-logs
 npx nx run-many -t e2e
 npx playwright show-report .\dist\.playwright\apps\store-e2e\playwright-report
 npx playwright show-report .\dist\.playwright\apps\inventory-e2e\playwright-report
-
-npx nx serve store
-npx nx serve inventory
 ```
 
 ## Monorepo Creation Setup
