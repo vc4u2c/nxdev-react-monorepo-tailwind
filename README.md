@@ -30,6 +30,8 @@ npx nx serve inventory
 
 ## Monorepo Creation Setup
 
+This is how the Monorepo was setup. Please follow the section above if cloning the code.
+
 ```bash
 # This setup along with commit history describes how the repo was created
 # Download and install Node.js v20.12.0 from https://nodejs.org/en
