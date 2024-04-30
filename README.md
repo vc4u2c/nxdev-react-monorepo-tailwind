@@ -15,6 +15,10 @@ npm i
 # Building the Apps for Deployment
 npx nx run-many -t build
 
+# Preview
+npx nx run store:preview
+npx nx run inventory:preview
+
 # Run the apps
 npx nx serve store
 npx nx serve inventory
@@ -27,6 +31,13 @@ npx nx view-logs
 npx nx run-many -t e2e
 npx playwright show-report .\dist\.playwright\apps\store-e2e\playwright-report
 npx playwright show-report .\dist\.playwright\apps\inventory-e2e\playwright-report
+
+# Linting
+npx nx run-many -t lint
+
+# Show the project dependency graph
+npx nx graph
+npx nx graph --affected
 ```
 
 ## Monorepo Creation Setup
@@ -105,22 +116,6 @@ npx nx g @nx/react:app inventory --directory=apps/inventory
 # √ Which E2E test runner would you like to use? · playwright
 # √ What should be the project name and where should it be generated? · inventory @ apps/inventory
 
-# Serve the application
-npx nx serve inventory
-
-# Build
-npx nx run inventory:build
-
-# Unit Test
-npx nx test inventory
-
-# End to End Test
-npx nx e2e inventory-e2e
-npx playwright show-report .\dist\.playwright\apps\inventory-e2e\playwright-report
-
-# Preview
-npx nx run inventory:preview
-
 # Sharing Code with Local Libraries
 npx nx g @nx/react:library products --directory=libs/products --unitTestRunner=vitest --bundler=none
 # √ What should be the project name and where should it be generated? · products @ libs/products
@@ -128,7 +123,6 @@ npx nx g @nx/react:library orders --directory=libs/orders --unitTestRunner=vites
 # √ What should be the project name and where should it be generated? · orders @ libs/orders
 npx nx g @nx/react:library shared-ui --directory=libs/shared/ui --unitTestRunner=vitest --bundler=none
 # √ What should be the project name and where should it be generated? · shared-ui @ libs/shared/ui
-
 # Move libs/my-feature-lib to libs/shared/my-feature-lib:
 # npx nx g @nx/workspace:move --project my-feature-lib --destination shared/my-feature-lib
 
@@ -143,19 +137,6 @@ npx nx g @nx/react:component product-list --project=products --directory="libs/p
 npx nx g @nx/react:component order-list --project=orders --directory="libs/orders/src/lib/order-list"
 # √ Should this component be exported in the project? (y/N) · true
 # √ Where should the component be generated? · libs/orders/src/lib/order-list/order-list.tsx
-
-# Building the Apps for Deployment
-npx nx run-many -t build
-
-# Run Unit tests in parallel
-npx nx run-many -t test
-npx nx view-logs
-# Run E2E tests in parallel
-npx nx run-many -t e2e
-npx playwright show-report .\dist\.playwright\apps\store-e2e\playwright-report
-npx playwright show-report .\dist\.playwright\apps\inventory-e2e\playwright-report
-npx nx serve store
-npx nx serve inventory
 
 # Install Netlify CLI
 npm install -g netlify-cli
